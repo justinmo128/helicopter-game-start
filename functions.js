@@ -53,23 +53,31 @@ function moveHeli() {
 // MOVE WALLS
 function moveWalls() {
     // Wall 1
-    wall1.x += -3;
+    wall1.x -= wallspeed;
     if (wall1.x + wall1.w < 0) {
         wall1.x = wall3.x + 500;
         wall1.y = Math.random() * 300 + 100;
     }
     // Wall 2
-    wall2.x += -3;
+    wall2.x -= wallspeed;
     if (wall2.x + wall2.w < 0) {
         wall2.x = wall1.x + 500;
         wall2.y = Math.random() * 300 + 100;
     }
     // Wall 3
-    wall3.x += -3;
+    wall3.x -= wallspeed;
     if (wall3.x + wall3.w < 0) {
         wall3.x = wall2.x + 500;
         wall3.y = Math.random() * 300 + 100;
     }
+}
+
+// INCREASE WALL SPEED
+function increaseWallSpeed() {
+    if (state = "gameon") {
+        wallSpeed += 0.1;
+    }
+    setTimeout(increaseWallSpeed, 2500)
 }
 
 // CHECK COLLISIONS
@@ -150,20 +158,21 @@ function reset() {
     x: cnv.width,
     y: Math.random() * 300 + 100,
     w: 50,
-    h: 100
+    h: 100,
     };
     wall2 = {
     x: cnv.width + 500,
     y: Math.random() * 300 + 100,
     w: 50,
-    h: 100
+    h: 100,
     };
     wall3 = {
     x: cnv.width + 1000,
     y: Math.random() * 300 + 100,
     w: 50,
-    h: 100
+    h: 100,
     };
+    wallspeed = 3;
     distance = 0;
 }
 

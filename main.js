@@ -22,6 +22,7 @@ let mouseIsPressed = false;
 let state;
 let heli;
 let wall1, wall2, wall3;
+let wallspeed;
 let distance;
 let bestScore = 0;
 reset();
